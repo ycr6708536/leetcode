@@ -5,7 +5,7 @@
  * 
  * https://leetcode.com/problems/longest-common-prefix/description/
  * 
- * 
+ * 字符串排序 先对比第一个字母相同然后才好
  */
 
 /**
