@@ -39,28 +39,12 @@ function ListNode(val) {
     this.next = null
 }
 
-var mergeTwoLists = function(l1, l2) {
-    var r
-    var rr
-    if (!l1) return l2
-    if (!l2) return l1
-    if (l1.val < l2.val) {
-        rr = new ListNode(l1.val)
-        l1 = l1.next
-    } else {
-        rr = new ListNode(l2.val)
-        l2 = l2.next
-    }
-    r = rr
+var mergeTwoLists = function (l1, l2) {
+    var r = new ListNode(0)
+    var rr = r
 
-    while (l1 || l2) {
-        if (!l1 && l2) {
-            r.next = l2
-            break
-        } else if (l1 && !l2) {
-            r.next = l1
-            break
-        } else if (l1.val < l2.val) {
+    while (l1 && l2) {
+        if (l1.val < l2.val) {
             r.next = new ListNode(l1.val)
             l1 = l1.next
         } else {
@@ -69,5 +53,10 @@ var mergeTwoLists = function(l1, l2) {
         }
         r = r.next
     }
-    return rr
+    if (!l1) {
+        r.next = l2
+    } else {
+        r.next = l1
+    }
+    return rr.next
 }
