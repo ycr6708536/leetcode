@@ -29,7 +29,7 @@
  * 
  * Example:
  * 
- * LRUCache cache = new LRUCache( 2 /* capacity */ );
+ * LRUCache cache = new LRUCache( 2 capacity  );
  * 
  * cache.put(1, 1);
  * cache.put(2, 2);
@@ -47,7 +47,9 @@
  * @param {number} capacity
  */
 var LRUCache = function(capacity) {
-    
+    this.capacity = capacity;
+    this.keys=[];
+    this.value={};
 };
 
 /** 
@@ -55,7 +57,14 @@ var LRUCache = function(capacity) {
  * @return {number}
  */
 LRUCache.prototype.get = function(key) {
-    
+    var index = this.keys.indexOf(key);
+    if(index>-1){
+        var consume = this.keys.splice(index,1)
+        this.keys.push(consume[0])
+        return this.value[key]
+    }else{
+        return -1
+    }
 };
 
 /** 
@@ -64,8 +73,23 @@ LRUCache.prototype.get = function(key) {
  * @return {void}
  */
 LRUCache.prototype.put = function(key, value) {
-    
+    var index = this.keys.indexOf(key);
+    if(index>-1){
+        var consume = this.keys.splice(index,1)
+        this.keys.push(consume[0])
+        this.value[key]=value
+    }else{
+        // 未满则填充
+        if(this.keys.length>=this.capacity){
+            var consume = this.keys.shift()
+            delete this.value[consume]
+        }
+        this.keys.push(key)
+        this.value[key]=value;
+    }
 };
+
+
 
 /** 
  * Your LRUCache object will be instantiated and called as such:
