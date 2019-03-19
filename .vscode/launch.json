@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/28.implement-str-str.js"
+            "program": "${workspaceFolder}/35.search-insert-position.js"
         }
     ]
 }
