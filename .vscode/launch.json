@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/35.search-insert-position.js"
+            "program": "${workspaceFolder}/38.count-and-say.js"
         }
     ]
 }
