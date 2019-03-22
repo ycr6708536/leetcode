@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/38.count-and-say.js"
+            "program": "${workspaceFolder}/53.maximum-subarray.js"
         }
     ]
 }
