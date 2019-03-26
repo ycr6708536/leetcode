@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/66.plus-one.js"
+            "program": "${workspaceFolder}/67.add-binary.js"
         }
     ]
 }
