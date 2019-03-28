@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/67.add-binary.js"
+            "program": "${workspaceFolder}/src/69.sqrt-x.js"
         }
     ]
 }
