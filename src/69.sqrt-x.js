@@ -40,20 +40,35 @@
  * @param {number} x
  * @return {number}
  */
+function division2(x) {
+    return Math.ceil(x / 2)
+}
+
 var mySqrt = function (x) {
     if (x === 0) return 0
     if (x === 1) return 1
-    var r=2;
-    while(true){
-        var square = r*r;
-        if(square>x){
-            return r-1
-        }else if(square === x){
-            return r
+    var min = 1,
+        max = division2(x)
+    if (max > 46340) {
+        max = 46340
+    }
+    while (max !== min) {
+        let mid = division2(max + min / 2);
+        if (mid === min) {
+            if(max*max<=x){
+                return max
+            }else{
+                return min
+            }
+        }else if(mid*mid>x){
+            max = mid
+        }else if(mid*mid<x){
+            min = mid
         }else{
-            r++
+            return mid
         }
     }
+    return max
 };
 
 module.exports = mySqrt

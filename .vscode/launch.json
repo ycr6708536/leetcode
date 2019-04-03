@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/src/69.sqrt-x.js"
+            "program": "${workspaceFolder}/src/70.climbing-stairs.js"
         }
     ]
 }
