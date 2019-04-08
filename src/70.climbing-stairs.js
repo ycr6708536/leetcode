@@ -64,20 +64,20 @@
  * @return {number}
  */
 /** 动态规划 */
-// var climbStairs = function (n) {
-//     if (n === 1) {
-//         return 1
-//     }
-//     if (n === 2) {
-//         return 2;
-//     }
-//     let num = [1, 2]
-//     let r = 0;
-//     for (var i = 2; i < n; i++) {
-//         num[i] = num[i-1]+num[i-2]
-//     }
-//     return num[i-1]
-// };
+var climbStairs = function (n) {
+    if (n === 1) {
+        return 1
+    }
+    if (n === 2) {
+        return 2;
+    }
+    let num = [1, 2]
+    let r = 0;
+    for (var i = 2; i < n; i++) {
+        num[i] = num[i-1]+num[i-2]
+    }
+    return num[i-1]
+};
 /** 暴力枚举 */
 
 // var climbStairs = function (n) {
@@ -103,7 +103,5 @@
 // }
 
 
-var climbStairs = function(n){
-    
-}
+
 module.exports = climbStairs
