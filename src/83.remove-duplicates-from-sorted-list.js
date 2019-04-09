@@ -45,18 +45,30 @@ function ListNode(val) {
  * @param {ListNode} head
  * @return {ListNode}
  */
+// var deleteDuplicates = function (head) {
+//     if(!head)return null
+//     let p = new ListNode(head.val);
+//     var cur = p;
+//     while (head.next) {
+//         head = head.next
+//         if (head.val !== cur.val) {
+//             cur.next = new ListNode(head.val)
+//             cur = cur.next
+//         }
+//     }
+//     return p;
+// };
+
 var deleteDuplicates = function (head) {
     if(!head)return null
-    let p = new ListNode(head.val);
-    var cur = p;
-    while (head.next) {
-        head = head.next
-        if (head.val !== cur.val) {
-            cur.next = new ListNode(head.val)
-            cur = cur.next
+    let p = head;
+    while (p.next) {
+        if (p.val === p.next.val) {
+            p.next = p.next.next
+        }else{
+            p = p.next
         }
     }
-    return p;
+    return head;
 };
-
 module.exports = deleteDuplicates;
