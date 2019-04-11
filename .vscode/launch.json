@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/src/70.climbing-stairs.js"
+            "program": "${workspaceFolder}/src/88.merge-sorted-array.js"
         }
     ]
 }
