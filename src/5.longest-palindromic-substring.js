@@ -30,21 +30,54 @@
  *
  */
 
+
+function isPalindrome(s,start,end){
+    while(start<=end){
+        if(s[start]===s[end]){
+            start++
+            end--
+        }else{
+            return false
+        }
+    }
+    return true
+}
+
+
 /**
  * @param {string} s
  * @return {string}
  */
 var longestPalindrome = function(s) {
-    var len = s.length-1;
+    var s1 = s.split('').reverse();
+    var max = 0;
+    var map = [];
     var start = 0;
+    for(var i = 0;i<s1.length;i++){
+        map[i]=[]
+        for(var j =0;j<s.length;j++){
+            if(s[j]===s1[i]){
+                if(i===0 || j === 0){
+                    map[i][j]=1
+                }else{
+                    map[i][j] = map[i-1][j-1]+1
+                }
+            }else{
+                map[i][j] = 0
+            }
+        }
+    }
 
-    return isPalindrome(s,start+1,len)
+    for(i=map.length-1;i>-1;i--){
+        for(j=map[i].length-1;j>-1;j--){
+            if(max < map[j][i] && isPalindrome(s,i - map[j][i]+1,i)){
+                max = map[j][i];
+                start = i-max+1;
+            }
+        }
+    }
+
+    return s.substr(start, max)
 };
-
-var isPalindrome = function(s,start,len){
-    if(start === len){
-        return true
-    } else if(isPalindrome(s,start+1,len-1) &&)
-}
 
 module.exports = longestPalindrome;

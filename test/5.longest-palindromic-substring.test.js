@@ -5,7 +5,7 @@ test('sprt 8 equal 2', () => {
 });
 
 test('sprt 4 equal 2', () => {
-    expect(mySqrt('babad')).toEqual('bab');
+    expect(mySqrt('babad')).toEqual('aba');
 });
 
 test('sprt 4 equal 2', () => {
