@@ -12,6 +12,9 @@ test('sprt 4 equal 2', () => {
     expect(mySqrt('dvdf')).toEqual('dvd');
 });
 
+test('bb', () => {
+    expect(mySqrt('bb')).toEqual('bb');
+});
 // test('sprt 9 equal 3', () => {
 //     expect(mySqrt(9)).toEqual(3);
 // });
