@@ -118,9 +118,39 @@
 //     return s.substr(start, max)
 
 // }
+// 中心拓展算法
+// babad
+var longestPalindrome = function (s) {
+    if (s.length <= 1) return s
+    var start = 0;
+    var max = 0;
 
-var longestPalindrome = function(s) {
-    
+    for (var i = 0; i < s.length; i++) {
+        var l1 = getLong(s, i, i)
+        var l2 = getLong(s, i, i + 1)
+        var l3 = Math.max(l1, l2)
+        if (l3 > max) {
+            max = l3
+            start = i - Math.floor((l3 - 1) / 2)
+        }
+    }
+    return s.substr(start, max)
+
+
+}
+
+function getLong(s, left, right) {
+    var l = left
+    var r = right
+    var len = 0
+
+    while (l >= 0 && r < s.length && s[l] === s[r]) {
+        len = r - l + 1
+        l--
+        r++
+    }
+
+    return len
 }
 
 module.exports = longestPalindrome;
