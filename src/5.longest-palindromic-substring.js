@@ -152,7 +152,7 @@
 
 //     return len
 // }
-
+// Manacher
 var longestPalindrome = function (s) {
     // 填充#号
     var s1 = `#${s.split('').join('#')}#`;
