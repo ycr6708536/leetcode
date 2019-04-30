@@ -120,37 +120,72 @@
 // }
 // 中心拓展算法
 // babad
-var longestPalindrome = function (s) {
-    if (s.length <= 1) return s
-    var start = 0;
-    var max = 0;
+// var longestPalindrome = function (s) {
+//     if (s.length <= 1) return s
+//     var start = 0;
+//     var max = 0;
 
-    for (var i = 0; i < s.length; i++) {
-        var l1 = getLong(s, i, i)
-        var l2 = getLong(s, i, i + 1)
-        var l3 = Math.max(l1, l2)
-        if (l3 > max) {
-            max = l3
-            start = i - Math.floor((l3 - 1) / 2)
+//     for (var i = 0; i < s.length; i++) {
+//         var l1 = getLong(s, i, i)
+//         var l2 = getLong(s, i, i + 1)
+//         var l3 = Math.max(l1, l2)
+//         if (l3 > max) {
+//             max = l3
+//             start = i - Math.floor((l3 - 1) / 2)
+//         }
+//     }
+//     return s.substr(start, max)
+
+
+// }
+
+// function getLong(s, left, right) {
+//     var l = left
+//     var r = right
+//     var len = 0
+
+//     while (l >= 0 && r < s.length && s[l] === s[r]) {
+//         len = r - l + 1
+//         l--
+//         r++
+//     }
+
+//     return len
+// }
+
+var longestPalindrome = function (s) {
+    // 填充#号
+    var s1 = `#${s.split('').join('#')}#`;
+    var ml = [0];
+    var pos = 0;
+    var mr = 0;
+    var max = 0;
+    var start = 0;
+
+    for (var i = 0; i < s1.length; i++) {
+        if (i < mr) {
+            ml[i] = Math.min(ml[2 * pos - i], mr - i)
+        } else {
+            ml[i] = 1
+        }
+
+        // 扩展
+        while (i - ml[i] >= 0 && s1.length >= i + ml[i] && s1[i - ml[i]] === s1[i + ml[i]]) {
+            ml[i]++
+        }
+        // 更新pos和MR
+        if (ml[i] + i > mr) {
+            mr = ml[i] + i
+            pos = i;
+
+        }
+        // 记录最大值和起始位置
+        if (max < 2 * ml[i] - 1) {
+            max = 2 * ml[i] - 1
+            start = i - ml[i] + 1;
         }
     }
-    return s.substr(start, max)
-
-
-}
-
-function getLong(s, left, right) {
-    var l = left
-    var r = right
-    var len = 0
-
-    while (l >= 0 && r < s.length && s[l] === s[r]) {
-        len = r - l + 1
-        l--
-        r++
-    }
-
-    return len
+    return s1.substr(start, max).replace(/#/g, '')
 }
 
 module.exports = longestPalindrome;
