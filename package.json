@@ -13,6 +13,9 @@
   "scripts": {
     "test": "jest"
   },
+  "jest": {
+    "testEnvironment": "node"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ycr6708536/leetcode.git"
